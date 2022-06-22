@@ -169,8 +169,8 @@ module.exports.processor = function reorientCSSProcessor(from, to) {
   return function (css) {
     if (route === '') return;
 
-    css.eachDecl(function (decl) {
-      
+    css.walkDecls(function (decl) {
+
       // Skip if this one is a `behavior` property (except if we're relocating
       // from one HTML file to another)
       if (!htmlToHTML && decl.prop === 'behavior') return;
